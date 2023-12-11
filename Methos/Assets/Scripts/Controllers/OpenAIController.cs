@@ -12,12 +12,17 @@ public class OpenAIController : MonoBehaviour
 {
     [SerializeField] TMP_Text textField;
     [SerializeField] Button sendButton;
+    [SerializeField] Button nextButton;
+
     [SerializeField] List<Actor> actors;
     [SerializeField] string environment;
     [TextArea][SerializeField] string prompt = $"You must write a script for a short scene of Breaking Bad.";
 
     OpenAIAPI api;
     List<ChatMessage> messages;
+
+    string[] scriptLines;
+    int currentLineIndex;
 
     private void Start()
     {
@@ -34,6 +39,7 @@ public class OpenAIController : MonoBehaviour
         StartScript();
 
         sendButton.onClick.AddListener(() => GetResponse());
+        nextButton.onClick.AddListener(() => NextLine());
     }
 
     void AddPromptDetails()
@@ -56,7 +62,7 @@ public class OpenAIController : MonoBehaviour
 
     async void GetResponse()
     {
-        // disable the next button
+        // disable the send button
         sendButton.enabled = false;
 
         // send the entire chat to OpenAI to get the new message
@@ -76,10 +82,24 @@ public class OpenAIController : MonoBehaviour
         // add the response to the list of messages
         messages.Add(responseMessage);
 
-        // update the text field with the response
-        textField.text = string.Format(responseMessage.Content);
+        // create an array of the script's lines
+        scriptLines = responseMessage.Content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-        // re-enable the next button
-        sendButton.enabled = true;
+        // display the first line
+        NextLine();
+
+        // send button never gets re-enabled
+    }
+
+    void NextLine()
+    {
+        if (currentLineIndex >= scriptLines.Length)
+        {
+            return;
+        }
+
+        textField.text = scriptLines[currentLineIndex];
+
+        currentLineIndex++;
     }
 }
