@@ -1,3 +1,5 @@
+using GoogleTextToSpeech.Scripts;
+using GoogleTextToSpeech.Scripts.Data;
 using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
@@ -18,11 +20,24 @@ public class OpenAIController : MonoBehaviour
     [SerializeField] string environment;
     [TextArea][SerializeField] string prompt = $"You must write a script for a short scene of Breaking Bad.";
 
+    [SerializeField] private TextToSpeech textToSpeech;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private VoiceScriptableObject voice; // should be on actor
+
     OpenAIAPI api;
     List<ChatMessage> messages;
 
     string[] scriptLines;
     int currentLineIndex;
+
+    private Action<AudioClip> _audioClipReceived;
+    private Action<BadRequestData> _errorReceived;
+
+    private void Awake()
+    {
+        _errorReceived += ErrorReceived;
+        _audioClipReceived += AudioClipReceived;
+    }
 
     private void Start()
     {
@@ -100,6 +115,28 @@ public class OpenAIController : MonoBehaviour
 
         textField.text = scriptLines[currentLineIndex];
 
+        // splites string into two parts, one before the colon (name) and one after (message)
+        string[] parts = scriptLines[currentLineIndex].Split(':');
+        textToSpeech.GetSpeechAudioFromGoogle(parts[1], voice, _audioClipReceived, _errorReceived); // voice should be on actor
+
         currentLineIndex++;
+    }
+
+    private void ErrorReceived(BadRequestData badRequestData)
+    {
+        Debug.Log($"Error {badRequestData.error.code} : {badRequestData.error.message}");
+    }
+
+    private void AudioClipReceived(AudioClip clip)
+    {
+        audioSource.Stop();
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        _errorReceived -= ErrorReceived;
+        _audioClipReceived -= AudioClipReceived;
     }
 }
