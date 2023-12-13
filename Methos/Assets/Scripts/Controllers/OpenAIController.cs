@@ -20,9 +20,9 @@ public class OpenAIController : MonoBehaviour
     [SerializeField] string environment;
     [TextArea][SerializeField] string prompt = $"You must write a script for a short scene of Breaking Bad.";
 
-    [SerializeField] private TextToSpeech textToSpeech;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private VoiceScriptableObject voice; // should be on actor
+    [SerializeField] TextToSpeech textToSpeech;
+    [SerializeField] AudioSource audioSource;
+    Dictionary<string, VoiceScriptableObject> namesWithVoices = new Dictionary<string, VoiceScriptableObject>();
 
     OpenAIAPI api;
     List<ChatMessage> messages;
@@ -30,8 +30,8 @@ public class OpenAIController : MonoBehaviour
     string[] scriptLines;
     int currentLineIndex;
 
-    private Action<AudioClip> _audioClipReceived;
-    private Action<BadRequestData> _errorReceived;
+    Action<AudioClip> _audioClipReceived;
+    Action<BadRequestData> _errorReceived;
 
     private void Awake()
     {
@@ -85,7 +85,8 @@ public class OpenAIController : MonoBehaviour
         {
             Model = Model.ChatGPTTurbo,
             Temperature = 0.1,
-            MaxTokens = 1000,
+            //MaxTokens = 1000,
+            MaxTokens = 500,
             Messages = messages
         });
 
@@ -99,6 +100,21 @@ public class OpenAIController : MonoBehaviour
 
         // create an array of the script's lines
         scriptLines = responseMessage.Content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+        // get who the actors are
+        // right now assumes actors talk in the same order
+        for (int i = 0; i < actors.Count; i++)
+        {
+            string[] parts = scriptLines[i].Split(':');
+            
+            for (int j = 0; j < actors.Count; j++)
+            {
+                if (parts[0] == actors[j].GetActorName())
+                {
+                    namesWithVoices.Add(parts[0], actors[j].GetVoice());
+                }
+            }
+        }
 
         // display the first line
         NextLine();
@@ -115,8 +131,9 @@ public class OpenAIController : MonoBehaviour
 
         textField.text = scriptLines[currentLineIndex];
 
-        // splites string into two parts, one before the colon (name) and one after (message)
+        // splits string into two parts, one before the colon (name) and one after (message)
         string[] parts = scriptLines[currentLineIndex].Split(':');
+        VoiceScriptableObject voice = namesWithVoices[parts[0]];
         textToSpeech.GetSpeechAudioFromGoogle(parts[1], voice, _audioClipReceived, _errorReceived); // voice should be on actor
 
         currentLineIndex++;

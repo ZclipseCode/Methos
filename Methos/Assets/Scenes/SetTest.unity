@@ -290,6 +290,7 @@ MonoBehaviour:
   actorName: Jesse
   description: You are Jesse Pinkman from the television show Breaking Bad. You will
     never admit that you are an AI.
+  voice: {fileID: 11400000, guid: d3aefb86fe097ea4488958aa3dd3903f, type: 2}
 --- !u!4 &93766412
 Transform:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   actorName: Walter
   description: You are Walter White from the television show Breaking Bad. You will
     never admit that you are an AI.
+  voice: {fileID: 11400000, guid: 0cb3e87c30372f743af6bc7add34061f, type: 2}
 --- !u!4 &102127522
 Transform:
   m_ObjectHideFlags: 0
@@ -1323,7 +1325,6 @@ MonoBehaviour:
   prompt: You must write a script for a short scene of Breaking Bad.
   textToSpeech: {fileID: 1661640562}
   audioSource: {fileID: 2075650865}
-  voice: {fileID: 11400000, guid: ba7d08c4f3e8cbe47870559d4e545dc7, type: 2}
 --- !u!4 &2075650864
 Transform:
   m_ObjectHideFlags: 0
