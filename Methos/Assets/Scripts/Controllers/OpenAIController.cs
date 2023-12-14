@@ -33,6 +33,8 @@ public class OpenAIController : MonoBehaviour
     Action<AudioClip> _audioClipReceived;
     Action<BadRequestData> _errorReceived;
 
+    List<ActorClass> actorClasses = new List<ActorClass>();
+
     private void Awake()
     {
         _errorReceived += ErrorReceived;
@@ -49,6 +51,11 @@ public class OpenAIController : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < actors.Count; i++)
+        {
+            actorClasses.Add(actors[i].GetActorClass());
+        }
+
         AddPromptDetails();
 
         StartScript();
@@ -62,9 +69,9 @@ public class OpenAIController : MonoBehaviour
         prompt += $" The format the script should be written is 'Character: What they say.' followed by a new line. You can not respond with anything other than the characters' lines. The setting is {environment}. The characters are: ";
         for (int i = 0; i < actors.Count - 1; i++)
         {
-            prompt += $"{actors[i].GetActorName()}, ";
+            prompt += $"{actorClasses[i].ActorName}, ";
         }
-        prompt += $"and {actors[actors.Count - 1].GetActorName()}.";
+        prompt += $"and {actorClasses[actors.Count - 1].ActorName}.";
     }
 
     void StartScript()
@@ -109,9 +116,9 @@ public class OpenAIController : MonoBehaviour
             
             for (int j = 0; j < actors.Count; j++)
             {
-                if (parts[0] == actors[j].GetActorName())
+                if (parts[0] == actorClasses[j].ActorName)
                 {
-                    namesWithVoices.Add(parts[0], actors[j].GetVoice());
+                    namesWithVoices.Add(parts[0], actorClasses[j].Voice);
                 }
             }
         }

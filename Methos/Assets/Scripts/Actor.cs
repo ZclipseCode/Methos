@@ -9,7 +9,16 @@ public class Actor : MonoBehaviour
     [TextArea][SerializeField] string description;
     [SerializeField] VoiceScriptableObject voice;
 
-    public string GetActorName() => actorName;
+    ActorClass actorClass;
 
-    public VoiceScriptableObject GetVoice() => voice;
+    private void Start()
+    {
+        actorClass = new ActorClass(actorName, description, voice);
+    }
+
+    //public string GetActorName() => actorName;
+
+    //public VoiceScriptableObject GetVoice() => voice;
+
+    public ActorClass GetActorClass() => actorClass;
 }
