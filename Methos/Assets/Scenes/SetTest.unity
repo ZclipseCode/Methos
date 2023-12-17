@@ -258,102 +258,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85380242}
   m_CullTransparentMesh: 1
---- !u!1 &93766410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 93766412}
-  - component: {fileID: 93766411}
-  m_Layer: 0
-  m_Name: Jesse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &93766411
+--- !u!114 &93766411 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8385517729589363077, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+  m_PrefabInstance: {fileID: 8385517729632535182}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93766410}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 239c1b0dd3c4ae7448a89e44c312fe51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: Jesse
-  description: You are Jesse Pinkman from the television show Breaking Bad. You will
-    never admit that you are an AI.
-  voice: {fileID: 11400000, guid: d3aefb86fe097ea4488958aa3dd3903f, type: 2}
---- !u!4 &93766412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93766410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &102127520
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 102127522}
-  - component: {fileID: 102127521}
-  m_Layer: 0
-  m_Name: Walter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &102127521
+--- !u!114 &102127521 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8893124139141168607, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+  m_PrefabInstance: {fileID: 8893124139240630910}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102127520}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 239c1b0dd3c4ae7448a89e44c312fe51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: Walter
-  description: You are Walter White from the television show Breaking Bad. You will
-    never admit that you are an AI.
-  voice: {fileID: 11400000, guid: 0cb3e87c30372f743af6bc7add34061f, type: 2}
---- !u!4 &102127522
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102127520}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235033480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,3 +1362,117 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &8385517729632535182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363074, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385517729589363076, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+      propertyPath: m_Name
+      value: Jesse
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b1beb537de1c57845ad778341ca2c743, type: 3}
+--- !u!1001 &8893124139240630910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168604, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893124139141168606, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}
+      propertyPath: m_Name
+      value: Walter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8df736a4e8d7de43973fe63307cab80, type: 3}

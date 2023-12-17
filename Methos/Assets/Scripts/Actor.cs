@@ -16,9 +16,5 @@ public class Actor : MonoBehaviour
         actorClass = new ActorClass(actorName, description, voice);
     }
 
-    //public string GetActorName() => actorName;
-
-    //public VoiceScriptableObject GetVoice() => voice;
-
     public ActorClass GetActorClass() => actorClass;
 }
